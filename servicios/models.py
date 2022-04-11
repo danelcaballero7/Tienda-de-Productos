@@ -9,6 +9,7 @@ class Servicio(models.Model):
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creacion')
     updated = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de actualizacion')
 
+
     class Meta:
         verbose_name = 'Servicio'
         verbose_name_plural = 'Servicios'
