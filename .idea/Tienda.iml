@@ -27,6 +27,8 @@
         <option value="$MODULE_DIR$/templates/Tiendaapp" />
         <option value="$MODULE_DIR$/servicios/templates" />
         <option value="$MODULE_DIR$/servicios/templates/ servicios" />
+        <option value="$MODULE_DIR$/blog/templates" />
+        <option value="$MODULE_DIR$/blog/templates/blog" />
       </list>
     </option>
   </component>
