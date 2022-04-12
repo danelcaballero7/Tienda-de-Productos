@@ -24,21 +24,25 @@ SECRET_KEY = 'django-insecure-d4h2(b0mj#i65+$3-baf#y9aiizt6e-s-^z*$^tksj2hzi*lzl
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    # Django default app
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Tiendaapp',
-    'servicios',
+    'django.contrib.sitemaps',
+
+    # System App
+    'Tiendaapp.apps.TiendaappConfig',
+    'servicios.apps.ServiciosConfig',
 ]
 
 MIDDLEWARE = [
@@ -56,8 +60,7 @@ ROOT_URLCONF = 'Tienda.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,6 +75,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Tienda.wsgi.application'
+ASGI_APPLICATION = 'Tienda.asgi.application'
 
 
 # Database
@@ -107,22 +111,28 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
+LANGUAGE_CODE = 'es'
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
+
+SITE_ID = 1
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = str(BASE_DIR / 'assets')
+STATICFILES_DIRS = (
+    str(BASE_DIR / 'static'),
+)
 
 MEDIA_ROOT = str(BASE_DIR / 'media')
 MEDIA_URL = '/media/'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
